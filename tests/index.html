@@ -5,10 +5,19 @@
     <title>ES5 ISO 8601 Test Suite</title>
     <link rel="stylesheet" href="qunit/qunit/qunit.css" media="screen">
     <script src="qunit/qunit/qunit.js"></script>
-    <script>if (!/[?&]useNativeDateParse(?:\W|$)/.test(location.search)) {
+    <script>
+	var incJS = false;
+	if (!/[?&]useNativeDateParse(?:\W|$)/.test(location.search)) {
         Date.parse = function () { return NaN; };
-        document.write('<script src="../iso8601.js"><\/script>');
+		incJS = true;
     }
+	if (!/[?&]useNativeDateToISOString(?:\W|$)/.test(location.search)) {
+        Date.toISOString = function () { return NaN; };
+		incJS = true;
+    }
+	if (incJS) {
+	    document.write('<script src="../iso8601.js"><\/script>');
+	}
     </script>
     <script src="test.js"></script>
 </head>

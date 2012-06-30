@@ -75,3 +75,20 @@ test('date-time', 31, function () {
 
     // TODO: DRY
 });
+
+
+test('createUTC', 7, function () {
+    strictEqual(Date.createUTC(2010,8,2,23,19,38).getTime(), Date.UTC(2010,8,2,23,19,38));
+    strictEqual(Date.createUTC(2010,8,2,23,19).getTime(), Date.UTC(2010,8,2,23,19,0));
+    strictEqual(Date.createUTC(2010,8,2,23).getTime(), Date.UTC(2010,8,2,23,0,0));
+    strictEqual(Date.createUTC(2010,1,1).getTime(), Date.UTC(2010,1,1,0,0,0));
+    strictEqual(Date.createUTC(2010,11).getTime(), Date.UTC(2010,11,1,0,0,0));
+    strictEqual(Date.createUTC(2010).getTime(), Date.UTC(2010,0,1,0,0,0));
+    strictEqual(Date.createUTC().getTime(), Date.UTC(1970,0,1,0,0,0));
+});
+
+test('iso', 2, function () {
+    strictEqual(Date.createUTC(2010,8,2,23,19,38).toISOString(), '2010-09-02T23:19:38.000Z');
+    strictEqual(Date.createUTC(2012,0,12,0,1,59).toISOString(), '2012-01-12T00:01:59.000Z');
+
+});
