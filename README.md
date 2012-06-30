@@ -1,5 +1,4 @@
-Universal JavaScript Date.parse for ISO 8601
-JavaScript Date.toISOString() for non ECMAScript 5 compliant browsers
+Universal JavaScript Date.parse for ISO 8601, JavaScript Date.toISOString() for non ECMAScript 5 compliant browsers
 ============================================
 
 
