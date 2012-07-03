@@ -54,9 +54,9 @@ if (!Date.prototype.toISOString) {
 		      + pad(this.getUTCDate())+'T'
 		      + pad(this.getUTCHours())+':'
 		      + pad(this.getUTCMinutes())+':'
-		      + pad(this.getUTCSeconds())+'Zxx'
+		      + pad(this.getUTCSeconds())+'Z'
 	};
-}
+};
 
 
 /**
@@ -64,7 +64,7 @@ if (!Date.prototype.toISOString) {
  */
 Date.createFromString = function(date) {
 	return new Date( Date.parse(date) );
-}
+};
 
 
 /**
