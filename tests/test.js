@@ -87,8 +87,17 @@ test('createUTC', 7, function () {
     strictEqual(Date.createUTC().getTime(), Date.UTC(1970,0,1,0,0,0));
 });
 
-test('iso', 2, function () {
+test('toISOString', 2, function () {
     strictEqual(Date.createUTC(2010,8,2,23,19,38).toISOString(), '2010-09-02T23:19:38.000Z');
     strictEqual(Date.createUTC(2012,0,12,0,1,59).toISOString(), '2012-01-12T00:01:59.000Z');
+});
 
+
+test('createFromString', 5, function () {
+	strictEqual( Date.createFromString('2007-02-04T15:02:12.000Z').getTime(), Date.UTC(2007,2-1,4,15,2,12) );
+	strictEqual( Date.createFromString('2007-01-01T00:01:03.000Z').getTime(), Date.UTC(2007,1-1,1,0,1,3) );
+
+	ok( isNaN(Date.createFromString('2007-01-01T0:01:03.000Z')) );
+	ok( isNaN(Date.createFromString('2007-01-01T00:1:03.000Z')) );
+	ok( isNaN(Date.createFromString('2007-01-01T00:01:3.000Z')) );
 });
