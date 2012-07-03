@@ -62,7 +62,7 @@ if (!Date.prototype.toISOString) {
 /**
  * Convenience method
  */
-Date.createFromString = function(date) {
+Date.parseToDate = function(date) {
 	return new Date( Date.parse(date) );
 };
 
