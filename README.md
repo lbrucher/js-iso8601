@@ -1,9 +1,12 @@
-Universal JavaScript Date.parse for ISO 8601, JavaScript Date.toISOString() for non ECMAScript 5 compliant browsers
-============================================
+# JavaScript Date enhancements for non ECMAScript 5 compliant browsers
+
+## Functions provided in this library
 
 
-Date.parse for ISO 8601
-----------
+### Date.parse(s)
+
+Enhanced version of the original parse() function to add support for dates formatted with ISO8601.
+All other formats fallback to the original Date.parse()
 
 ECMAScript revision 5 adds native support for simplified [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) dates in the
 `Date.parse` method, but some browsers currently on the market (Safari 5-, IE 8-, Firefox 3.6-) do not support it. This
@@ -12,8 +15,7 @@ is a simple shim for Date.parse that adds support for parsing ES5 simplified ISO
 If you are attempting to parse date strings coming from non-ES5-conformant backends, please consider using the
 [non-conformant edition](https://github.com/csnover/js-iso8601/tree/lax).
 
-Caveats
--------
+_Caveats_
 
 1. This library strictly implements the simplified ISO 8601 date time string format specified in the
    [ES5 Errata](http://wiki.ecmascript.org/doku.php?id=es3.1:es3.1_proposal_working_draft) (§15.9.1.15) and will *not*
@@ -23,15 +25,20 @@ Caveats
    for parsing the simplified ISO 8601 date format.
 
 
-JavaScript Date.toISOString()
-----------
+### Date.toISOString()
 
-This library provides an implementation of Date.toISOString() when not provided by the browser.
-The function formats the UTC equivalent of the date into an ISO8601 string.
+Provides an implementation of this method for non ECMAScript 5 compliant browsers.
+
+Returns the date and time using the ISO8601 standard format
 
 
-Unit tests
-----------
+### Date.parseToDate(s)
+
+Equivalent to Date.parse() but returns a Date object instead. 
+
+
+
+## Unit tests
 
 By default, the unit tests are configured only to test the JavaScript fallback portion of the script, which means
 your browser’s native Date.parse implementation will not be used. Add “?useNativeDateParse” to the URL to run unit
@@ -44,8 +51,7 @@ browser’s native implementation (for browser compliance testing purposes).
 **Note:** You must checkout using `git clone --recursive` in order for unit tests to function.
 
 
-License
-----------
+## License
 
 © 2011 Colin Snover.
 © 2012 Laurent Brucher.
