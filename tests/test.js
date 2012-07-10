@@ -101,3 +101,19 @@ test('parseToDate', 5, function () {
 	ok( isNaN(Date.parseToDate('2007-01-01T00:1:03.000Z')) );
 	ok( isNaN(Date.parseToDate('2007-01-01T00:01:3.000Z')) );
 });
+
+
+test('integration', 4, function () {
+    var now = new Date();
+    var nowIso = now.toISOString();
+    var nowIsoDate = Date.parseToDate(nowIso);
+    strictEqual( nowIsoDate.getTime(), now.getTime() );
+    strictEqual( nowIsoDate.toISOString(), nowIso );
+
+
+    var dt = Date.createUTC(2012, 7-1, 10, 8, 33, 12);
+    var dtIso = dt.toISOString();
+    var dtIsoTime = Date.parse(dtIso);
+    strictEqual( dtIsoTime, dt.getTime() );
+    strictEqual( dtIso, '2012-07-10T08:33:12.000Z' );
+});

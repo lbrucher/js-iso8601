@@ -7,7 +7,6 @@
  *
  * Released under MIT license.
  */
-
 Date.__origParse = Date.parse;
 Date.parse = function (date) {
     var struct;

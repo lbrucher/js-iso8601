@@ -37,6 +37,12 @@ Returns the date and time using the ISO8601 standard format
 Equivalent to Date.parse() but returns a Date object instead. 
 
 
+### Date.createUTC(year, month, day, hour, min, sec, msec)
+
+Returns a Date object representing the given date & time in UTC format.
+
+All parameters are optional and default to 0, 1970 (year) or 1 (day).
+
 
 ## Unit tests
 
